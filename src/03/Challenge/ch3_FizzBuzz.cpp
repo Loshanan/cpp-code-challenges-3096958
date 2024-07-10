@@ -16,6 +16,24 @@ int main(){
     std::cin >> n;
 
     // Write your code here
+    std::cout << 1;
+    for (int i=2; i<n+1; i++){
+        if (i%3 == 0){
+            if (i%5 ==0){
+                std::cout << " Fizz Buzz";
+                continue;
+            }else{
+                std::cout << " Fizz";
+                continue;
+            }
+        }
+        if (i%5 ==0){
+            std::cout << " Buzz";
+            continue;
+        } 
+        
+        std::cout << ' ' << i;
+    }
     
     std::cout << std::endl << std::flush;
     return 0;
