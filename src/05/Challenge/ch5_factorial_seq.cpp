@@ -17,8 +17,12 @@
 int print_factorials(int n){
     
     // Write your code here
+    int fact;
+    fact = n == 0 ? 1 : n*print_factorials(n-1);
+    std::cout << fact << std::endl;
 
-    return 0;
+
+    return fact;
 }
 
 // Main function
