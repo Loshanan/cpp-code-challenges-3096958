@@ -6,9 +6,11 @@
 class complex_num{
     
     // Write your code here
+    double r;
+    double i;
 
     public:
-         complex_num(double = 0.0, double = 0.0);
+         complex_num(double r = 0.0, double i = 0.0);
          complex_num operator +(complex_num);
          complex_num operator -(complex_num);
          complex_num operator *(complex_num);
