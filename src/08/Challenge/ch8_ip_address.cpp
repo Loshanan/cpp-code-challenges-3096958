@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstring>
 
 // is_valid_ip()
 // Summary: This function validates an IP address.
@@ -18,8 +19,24 @@
 bool is_valid_ip(std::string ip){
 
     // Write your code here
+    std::vector<std::string> addresses;
+    int s = 0;
+    int e = -1;
 
-    return false;
+    do{
+        e = ip.find('.', e+1);
+        addresses.push_back(ip.substr(s, e-s));
+        s = e+1;
+    }while(e != std::string::npos);
+
+    if (addresses.size()!=4) return false;
+    for (std::string i: addresses){
+        for (char j:i)if(!isdigit(j))return false;
+        int num = stoi(i);
+        if (!(num>=0 && num<=255))return false;
+    }
+    return true;
+
 }
 
 // Main function
