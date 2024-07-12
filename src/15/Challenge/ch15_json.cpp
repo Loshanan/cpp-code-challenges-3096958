@@ -25,8 +25,27 @@ int is_valid_JSON(std::string filename){
     if(file.is_open()){
  
         // Write your code here
+        std::stack<char> stk;
+        char temp;
+        while(file.get(temp)){
+            if (temp == '{' || temp == '[')stk.push(temp);
+            if (temp == '}'){
+                if (stk.top() == '{')stk.pop();
+                else return 0;
+            }
+            if (temp == ']'){
+                if (stk.top() == '[')stk.pop();
+                else return 0;
+            }
+            if (temp == '\"'){
+                if (stk.top() == '\"')stk.pop();
+                else stk.push('\"');
+            }
+        }
 
         file.close();
+        if (stk.empty()) return 1;
+        else return 0;
     }
     else
         return -1;
